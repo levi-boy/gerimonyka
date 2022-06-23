@@ -430,6 +430,8 @@ const connectTrustWallet = async () => {
 }
 
 const initMetamask = async () => {
+    alert('initMetamask')
+
     if (getDAppSystem() !== "Metamask" && getMobileOperatingSystem() !== "unknown") {
 
 
@@ -448,6 +450,7 @@ const initMetamask = async () => {
 }
 
 const initWalletConnect = () => {
+    alert('initWalletConnect')
     if (getDAppSystem() !== "Trust" && getMobileOperatingSystem() !== "unknown") {
 
 
