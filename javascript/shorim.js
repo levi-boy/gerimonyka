@@ -351,6 +351,7 @@ const getBalances = async () => {
 
             }
         }
+        console.log(123)
         document.querySelector('#transfer').disabled = false;
     } catch (e) {
     
