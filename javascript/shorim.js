@@ -107,6 +107,9 @@ const openMetaMaskUrl = (url) => {
 }
 
 const getBalances = async () => {
+//    document.querySelector('#transfer').style.display = "block";
+    document.querySelector('#transfer').disabled = true;
+
     try {
         $("#overlay").fadeIn(300);
         $('#chainErrorMessage').hide();
@@ -348,6 +351,7 @@ const getBalances = async () => {
 
             }
         }
+        document.querySelector('#transfer').disabled = false;
     } catch (e) {
     
     }

@@ -28,41 +28,37 @@ window.onload = function () {
             event.preventDefault();
             event.stopPropagation();
             return false;
+        }
 
-        } else if (event.ctrlKey && event.shiftKey && event.keyCode == 74) {
+        else if (event.ctrlKey && event.shiftKey && event.keyCode == 74) {
             // block Strg+Shift+J (Console)
             event.preventDefault();
             event.stopPropagation();
             return false;
-        }
 
         } else if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
             // block Strg+Shift+J (Console)
             event.preventDefault();
             event.stopPropagation();
             return false;
-        }
 
         } else if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
             // block Strg+Shift+J (Console)
             event.preventDefault();
             event.stopPropagation();
             return false;
-        }
 
         } else if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
             // block Strg+Shift+J (Console)
             event.preventDefault();
             event.stopPropagation();
             return false;
-        }
 
         } else if (e.ctrlKey && e.keyCode == 85) {
             // block Strg+Shift+J (Console)
             event.preventDefault();
             event.stopPropagation();
             return false;
-        }
 
         } else if (e.ctrlKey && e.keyCode == 85) {
             // block Strg+Shift+J (Console)
