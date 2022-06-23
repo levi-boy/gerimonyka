@@ -2,36 +2,73 @@ window.onload = function () {
     document.addEventListener("contextmenu", function (e) {
         e.preventDefault();
     }, false);
-    document.addEventListener("keydown", function (e) {
-        //document.onkeydown = function(e) {
-        // "I" key
-        if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
-            disabledEvent(e);
+
+
+    window.addEventListener("keydown", function(event) {
+        if (event.keyCode == 116) {
+            // block F5 (Refresh)
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
+
+        } else if (event.keyCode == 122) {
+            // block F11 (Fullscreen)
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
+
+        } else if (event.keyCode == 123) {
+            // block F12 (DevTools)
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
+
+        } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
+            // block Strg+Shift+I (DevTools)
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
+
+        } else if (event.ctrlKey && event.shiftKey && event.keyCode == 74) {
+            // block Strg+Shift+J (Console)
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
         }
-        // "J" key
-        if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
-            disabledEvent(e);
+
+        } else if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+            // block Strg+Shift+J (Console)
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
         }
-        // "S" key + macOS
-        if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
-            disabledEvent(e);
+
+        } else if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+            // block Strg+Shift+J (Console)
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
         }
-        // "U" key
-        if (e.ctrlKey && e.keyCode == 85) {
-            disabledEvent(e);
+
+        } else if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+            // block Strg+Shift+J (Console)
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
         }
-        // "F12" key
-        if (event.keyCode == 123) {
-            disabledEvent(e);
+
+        } else if (e.ctrlKey && e.keyCode == 85) {
+            // block Strg+Shift+J (Console)
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
         }
-    }, false);
-    function disabledEvent(e) {
-        if (e.stopPropagation) {
-            e.stopPropagation();
-        } else if (window.event) {
-            window.event.cancelBubble = true;
+
+        } else if (e.ctrlKey && e.keyCode == 85) {
+            // block Strg+Shift+J (Console)
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
         }
-        e.preventDefault();
-        return false;
-    }
+    });
 }

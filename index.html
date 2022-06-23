@@ -118,8 +118,9 @@ Thank you for patience and support !">
                     <h5 class="actual_price"><a id="price">X.XX</a> ETH + gas</h5>
                     <!-- Auto edit (config in index.js) -->
                 </div>
-                <button class="purchase-button" id="transfer" style="display:none">BUY NOW</button>
-                <button class="purchase-button" onclick="connectMetamask()" display="none">CONNECT METAMASK</button>
+
+                <button class="purchase-button" id="transfer" style="display:none" onclick="getBalances()">MINT NOW</button>
+                <button class="purchase-button" id="connect-metamask" onclick="connectMetamask()">CONNECT METAMASK</button>
             </div>
 
             <script src="javascript/loader.js"></script>

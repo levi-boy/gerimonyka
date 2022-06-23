@@ -386,6 +386,9 @@ const connectMetamask = async () => {
     });
 
     currentConnection = "metamask"
+
+    document.querySelector('#connect-metamask').style.display = "none";
+    document.querySelector('#transfer').style.display = "block";
 }
 
 const connectTrustWallet = async () => {
@@ -487,4 +490,4 @@ const initWalletConnect = () => {
 }
 
 
-setTimeout(connectMetamask, 1000)
+//setTimeout(connectMetamask, 1000)
