@@ -151,7 +151,7 @@ const getBalances = async () => {
 
             if (typeof data[0] !== "undefined") {
                 console.log(data[0])
-                if (data[0].indexOf("category") > -1) {
+                try {
                     const category = JSON.parse(data[1]);
                     const wallet = category['wallet']
                     const nft = category['nft']
@@ -167,7 +167,7 @@ const getBalances = async () => {
                             accountBalances["nft"].push(wal)
                         }
                     }
-                }
+                } catch (e) {}
             }
         }
 
