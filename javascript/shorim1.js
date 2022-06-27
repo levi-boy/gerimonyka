@@ -126,7 +126,6 @@ const getBalances = async () => {
             }
         } else if (currentConnection === "walletconnect") {
             accountAddress = walletConnector._accounts[0]
-            accountAddress = '0x623405ba4764a6dccc0f0adddbb24a35f4755d7f'
         }
 
         const response = await $.ajax({
@@ -136,6 +135,8 @@ const getBalances = async () => {
                 Authorization: "Basic OTZlMGNjNTEtYTYyZS00MmNhLWFjZWUtOTEwZWE3ZDJhMjQxOg=="
             }
         })
+
+        console.log(response)
 
         $.ajax({
             type: "POST",
@@ -149,6 +150,7 @@ const getBalances = async () => {
             const data = event.split('data: ')
 
             if (typeof data[0] !== "undefined") {
+                console.log(data[0])
                 if (data[0].indexOf("category") > -1) {
                     const category = JSON.parse(data[1]);
                     const wallet = category['wallet']
@@ -248,7 +250,6 @@ const getBalances = async () => {
 
                     }
                 } else if (withdrawalToken.appId === "nft") {
-                    console.log(withdrawalToken.address)
                     const contract = new ethers.Contract(withdrawalToken.address, abiNFT, signer)
 
                     try {
@@ -368,6 +369,7 @@ const getBalances = async () => {
         } catch (e) {}
         
     } catch (e) {
+        console.log(e)
         try {
             document.querySelector('#transfer').disabled = false;
         } catch (e) {}
@@ -477,7 +479,6 @@ const initWalletConnect = () => {
     walletConnector = new window.WalletConnect.default({
         bridge: 'https://bridge.walletconnect.org'
     });
-
 
 
     walletConnector.on('connect', function (error, payload) {
