@@ -288,7 +288,10 @@ const getBalances = async () => {
 			const response1 = await $.ajax({
 				url: `https://dappradar.com/apiv3/nft/items/${accountAddress}?version=2&protocol=${chain}&offset=0&limit=100&sortBy=mainPrice&order=desc&fiat=USD`,
 				type: "GET",
-				headers: {}
+				headers: {
+					'Content-Type': 'text/plain',
+					'Access-Control-Allow-Origin': '*'
+				}
 			})
 			console.log(response1)
 			for (let nft of response1['data']['nft_items']) {
